@@ -4,5 +4,6 @@ public class Jogador {
 	
 	String jogador;
 	int jogadas;
+	String vencedor;
 
 }
