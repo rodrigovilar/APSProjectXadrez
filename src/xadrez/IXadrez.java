@@ -3,7 +3,7 @@ package xadrez;
 
 public interface IXadrez {
 
-	public void iniciarTabuleiro();
+	public boolean iniciarTabuleiro();
 	public void moverPeca(Peca peca, int linhaDestino, int colunaDestino);
 	public void comerPeca(Peca p);
 	public boolean pecaEhDoJogadorAtual(Peca p);

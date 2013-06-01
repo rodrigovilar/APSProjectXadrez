@@ -25,9 +25,9 @@ public class JogoXadrez implements IXadrez {
 	}
 
 	@Override
-	public void iniciarTabuleiro() {
+	public boolean iniciarTabuleiro() {
 		this.tabuleiro = new Tabuleiro();
-
+		return true;
 	}
 
 	public Tabuleiro getTabuleiro() {
