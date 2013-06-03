@@ -6,7 +6,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class Teste {
-	JogoXadrez jogo = new JogoXadrez();	
+	JogoXadrez jogo = new JogoXadrez();
+	Peao peao = (Peao) jogo.getTabuleiro().getQuadrado(1, 0).getPeca();
 	@Test
 	public void teste_criar_Jogo(){
 		jogo = new JogoXadrez();	
@@ -17,15 +18,21 @@ public class Teste {
 	}
 	@Test
 	public void teste_Peao_Na_Posicao_Inicial(){
-		Peao peao = (Peao) jogo.getTabuleiro().getQuadrado(1, 0).getPeca();
 		assertEquals(true, peao.isEstaNaPosicaoInicial());
 	}	
 	@Test
 	public void teste_Peao_Inimigo(){
-		Peao peao = (Peao) jogo.getTabuleiro().getQuadrado(1, 0).getPeca();
-		jogo.moverPeca(peao, 3, 0);
 		assertFalse(peao.pecaEhAdversaria(peao));
 	}
+	@Test
+	public void teste_Movimento_Valido_Peao(){
+		assertTrue(jogo.movimentoEhValido(2, 0, peao));
+	}
+	@Test
+	public void teste_Movimento_Invalido_Peao(){
+		assertEquals(false, jogo.movimentoEhValido(2, 1, peao));
+	}
+	
 	
 	
 
