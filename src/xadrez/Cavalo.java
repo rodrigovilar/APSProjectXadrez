@@ -4,8 +4,8 @@ import JPlay.GameImage;
 
 public class Cavalo extends Peca {
 
-	public Cavalo(int peso, CorDaPeca cor, int linha, int coluna, GameImage nome) {
-		super(peso, cor, linha, coluna, nome);
+	public Cavalo(int peso, CorDaPeca cor, int linha, int coluna, GameImage nome, String nomeDaPeca) {
+		super(peso, cor, linha, coluna, nome, nomeDaPeca);
 	}
 
 	@Override

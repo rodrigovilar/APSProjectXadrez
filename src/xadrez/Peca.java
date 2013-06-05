@@ -13,8 +13,17 @@ public abstract class Peca {
 	protected int colunaAtual;
 	protected List<Coordenada> ListaDeMovimentos;
 	private GameImage nome;
+	private String nomeDaPeca;
 	
 	
+	public String getNomeDaPeca() {
+		return nomeDaPeca;
+	}
+
+	public void setNomeDaPeca(String nomeDaPeca) {
+		this.nomeDaPeca = nomeDaPeca;
+	}
+
 	/**
 	 * Recupera a lista dos possiveis movimentos de uma peca.
 	 * @param p peca para verificar seus movimentos
@@ -27,8 +36,8 @@ public abstract class Peca {
 		return ListaDeMovimentos;
 	}
 
-	public Peca(int peso,CorDaPeca cor, int linha, int coluna, GameImage nome) {
-		
+	public Peca(int peso,CorDaPeca cor, int linha, int coluna, GameImage nome, String nomePeca) {
+		this.nomeDaPeca = nomePeca;
 		this.pesoDaPeca = peso;
 		this.ListaDeMovimentos = new ArrayList<Coordenada>();
 		this.cor = cor;
@@ -58,6 +67,7 @@ public abstract class Peca {
 	public CorDaPeca getCor(){
 		return this.cor;
 	}
+
 
 	public void setPosicaoAtual(int linhaAtual, int colunaAtual) {
 		this.linhaAtual = linhaAtual;
@@ -94,7 +104,6 @@ public abstract class Peca {
 		
 		return true;
 	}
-	
 	public abstract void movimentos(Tabuleiro t);
 	
 }

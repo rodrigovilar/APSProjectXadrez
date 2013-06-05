@@ -15,8 +15,8 @@ public class Rei extends Peca {
 		this.estaNaPosicaoInicial = estaNaPosicaoInicial;
 	}
 
-	public Rei(int peso, CorDaPeca cor, int linha, int coluna, GameImage nome) {
-		super(peso, cor, linha, coluna, nome);
+	public Rei(int peso, CorDaPeca cor, int linha, int coluna, GameImage nome, String nomeDaPeca) {
+		super(peso, cor, linha, coluna, nome, nomeDaPeca);
 		this.estaNaPosicaoInicial = true;
 		this.usouRoque = false;
 

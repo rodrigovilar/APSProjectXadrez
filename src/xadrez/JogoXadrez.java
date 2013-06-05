@@ -33,9 +33,6 @@ public class JogoXadrez implements IXadrez {
 	public Tabuleiro getTabuleiro() {
 		return tabuleiro;
 	}
-
-
-
 	@Override
 	public void moverPeca(Peca peca, int linhaDestino, int colunaDestino){
 
@@ -303,5 +300,17 @@ public class JogoXadrez implements IXadrez {
 		}
 		return false;
 	}
-
+	
+	public String getTipoDaPeca(int linha, int coluna) {
+		String peca = tabuleiro.getQuadrado(linha, coluna).getPeca().getNomeDaPeca();
+		return peca;		
+		}
+	
+	public boolean movimentarPeca(int linha1, int coluna1,int linhaFutura, int colunaFutura){
+		Peca p = tabuleiro.getQuadrado(linha1, coluna1).getPeca();
+		this.moverPeca(p, linhaFutura, colunaFutura);
+		return true;
+		
+	}
+	
 }

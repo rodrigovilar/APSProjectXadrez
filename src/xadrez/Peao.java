@@ -5,7 +5,7 @@ import JPlay.GameImage;
 public class Peao extends Peca {
 	
 	private boolean estaNaPosicaoInicial;
-
+	
 	public boolean isEstaNaPosicaoInicial() {
 		return estaNaPosicaoInicial;
 	}
@@ -14,8 +14,8 @@ public class Peao extends Peca {
 		this.estaNaPosicaoInicial = estaNaPosicaoInicial;
 	}
 
-	public Peao(int peso,CorDaPeca cor, int linha, int coluna, GameImage nome) {
-		super(peso, cor, linha, coluna, nome);
+	public Peao(int peso,CorDaPeca cor, int linha, int coluna, GameImage nome,String nomePeca) {
+		super(peso, cor, linha, coluna, nome, nomePeca);
 		this.estaNaPosicaoInicial = true;
 	}
 	

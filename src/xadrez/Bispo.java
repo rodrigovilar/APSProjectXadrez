@@ -4,8 +4,8 @@ import JPlay.GameImage;
 
 public class Bispo extends Peca {
 
-	public Bispo (int peso,CorDaPeca cor, int linha, int coluna, GameImage nome) {
-		super(peso, cor, linha, coluna,nome);
+	public Bispo (int peso,CorDaPeca cor, int linha, int coluna, GameImage nome, String nomeDaPeca) {
+		super(peso, cor, linha, coluna,nome, nomeDaPeca);
 	}
 
 	@Override

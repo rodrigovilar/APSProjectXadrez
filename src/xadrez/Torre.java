@@ -14,8 +14,8 @@ public class Torre extends Peca{
 		this.estaNaPosicaoInicial = estaNaPosicaoInicial;
 	}
 
-	public Torre(int peso, CorDaPeca cor, int linha, int coluna, GameImage nome) {
-		super(peso, cor, linha, coluna, nome);
+	public Torre(int peso, CorDaPeca cor, int linha, int coluna, GameImage nome, String nomeDaPeca) {
+		super(peso, cor, linha, coluna, nome, nomeDaPeca);
 		this.estaNaPosicaoInicial = true;
 	}
 
