@@ -307,10 +307,22 @@ public class JogoXadrez implements IXadrez {
 		}
 	
 	public boolean movimentarPeca(int linha1, int coluna1,int linhaFutura, int colunaFutura){
+		
 		Peca p = tabuleiro.getQuadrado(linha1, coluna1).getPeca();
 		this.moverPeca(p, linhaFutura, colunaFutura);
 		return true;
 		
 	}
-	
+	public Enum corPeca(int l, int c) {
+		if(CorDaPeca.BRANCA == tabuleiro.getQuadrado(l, c).getPeca().getCor()){
+			return CorDaPeca.BRANCA;
+		}
+		return CorDaPeca.PRETA;
+	}
+	public boolean existePeca(int l, int c){
+		if(tabuleiro.getQuadrado(l, c).estaOcupado()){
+			return true;
+		}
+		return false;
+	}
 }

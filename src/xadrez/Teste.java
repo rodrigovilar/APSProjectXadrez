@@ -10,6 +10,34 @@ public class Teste {
 		JogoXadrez jogo = new JogoXadrez();
 		return jogo;
 	}
+	public JogoXadrez cenario2(){
+		JogoXadrez jogo = new JogoXadrez();
+		//Peao
+		jogo.movimentarPeca(1, 0, 3, 0);
+		//Peao
+		jogo.movimentarPeca(6, 1, 4, 1);
+		//Peao
+		jogo.movimentarPeca(1, 4, 2, 4);
+		return jogo;
+	}
+	public JogoXadrez cenario3(){
+		JogoXadrez jogo = new JogoXadrez();
+		jogo.movimentarPeca(6, 4, 4, 4);
+		jogo.movimentarPeca(1, 0, 4, 0);
+		jogo.movimentarPeca(7, 5, 4, 2);
+		jogo.movimentarPeca(1, 7, 2, 7);
+		jogo.movimentarPeca(7, 3, 3, 7);
+		jogo.movimentarPeca(1, 1, 3, 1);
+		
+		return jogo;
+		
+	}
+	
+	@Test
+	public void testeTabuleiroDoJogo(){
+		JogoXadrez jogo = new JogoXadrez();
+		assertEquals(true,jogo.iniciarTabuleiro());
+	}
 	@Test
 	public void testePecasNoJogo(){
 		JogoXadrez jogo = cenario1();	
@@ -51,21 +79,13 @@ public class Teste {
 	@Test
 	public void testeMovimentaPeaoBranco(){
 		JogoXadrez jogo = this.cenario1();
-		/*Movimento do 1º Peao (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(1, 0, 2, 0));
-		/*Movimento do 2º Peao (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(1, 1, 2, 1));
-		/*Movimento do 3º Peao (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(1, 2, 2, 2));
-		/*Movimento do 4º Peao (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(1, 3, 2, 3));
-		/*Movimento do 5º Peao (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(1, 4, 2, 4));
-		/*Movimento do 6º Peao (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(1, 5, 2, 5));
-		/*Movimento do 7º Peao (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(1, 6, 2, 6));
-		/*Movimento do 8º Peao (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(1, 7, 2, 7));
 	}
 	@Test
@@ -96,21 +116,13 @@ public class Teste {
 	}
 	public void testeMovimentaPeaoPreto(){
 		JogoXadrez jogo = this.cenario1();
-		/*Movimento do 1º Peao (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(6, 0, 4, 0));
-		/*Movimento do 2º Peao (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(6, 1, 4, 1));
-		/*Movimento do 3º Peao (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(6, 2, 4, 2));
-		/*Movimento do 4º Peao (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(6, 3, 4, 3));
-		/*Movimento do 5º Peao (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(6, 4, 4, 4));
-		/*Movimento do 6º Peao (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(6, 5, 4, 5));
-		/*Movimento do 7º Peao (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(6, 6, 4, 6));
-		/*Movimento do 8º Peao (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(6, 7, 4, 7));
 	}
 	public void testeMovimentaPecasPoderosasPretas(){
@@ -134,5 +146,67 @@ public class Teste {
 		/*Movimento do 2º Torre (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(7, 7, 6, 7));
 	}
+	@Test
+	public void testeMovimentoInvalidoPecasBrancas(){
+
+		JogoXadrez jogo = this.cenario1();
+		this.testeMovimentaPeaoBranco();
+		//Movimentando Peao para uma posicao irregular
+		//assertFalse(jogo.movimentarPeca(2, 0, 1, 1));
+		//Movimentando Peao para uma posicao irregular
+		//assertFalse(jogo.movimentarPeca(0, 0, 1, 1));
+	}
+	public void testeMovimentoInvalidoPecasPretas(){
+		
+	}
+	@Test
+	public void testeComerPecas(){
+
+		//Carregando alguns movimentos dos peoes
+		JogoXadrez jogo = this.cenario2();
+		//Verificando se existe peca na posicao
+		assertTrue(jogo.existePeca(4, 1));
+		//Testando a Cor da peca na posicao
+		assertEquals(CorDaPeca.PRETA, jogo.corPeca(4, 1));
+		//Peao Branco comendo peao Preto
+		assertTrue(jogo.movimentarPeca(3, 0, 4, 1));
+		//Verificando se a posição 4,1 agora tem uma peça Branca
+		assertEquals(CorDaPeca.BRANCA, jogo.corPeca(4,1));
+		//Verificando se a posicão 4,0 tem um peao preto
+		assertFalse(jogo.existePeca(4, 0));
+		//Torre Branca comendo peao Preto
+		assertTrue(jogo.movimentarPeca(0, 0, 6, 0));
+		//verificando a cor da peça que estar na posicao 4,0
+		assertEquals(CorDaPeca.BRANCA,jogo.corPeca(6, 0));
+		//Verificando se a peca realmente foi movida
+		assertFalse(jogo.existePeca(0, 0));
+		//Movendo Cavalo Preto
+		assertTrue(jogo.movimentarPeca(7, 1, 5, 0));
+		//Necessario mover a peca 4,1 para o bispo comer o cavalo
+		assertTrue(jogo.existePeca(4, 1));
+		assertTrue(jogo.movimentarPeca(4, 1, 5, 1));
+		//Bispo comendo o Cavalo
+		assertTrue(jogo.movimentarPeca(0, 5, 5, 0));
+		assertEquals(CorDaPeca.BRANCA,jogo.corPeca(5, 0));
+		
+	}
+	
+	
+	public void testeXequeMate(){
+
+		JogoXadrez jogo = this.cenario3();
+		jogo.movimentarPeca(4, 2, 1, 5);
+	}
+	public void testeRoque(){
+
+		
+	}
+	
+	
+
 }
+
+
+
+
 
