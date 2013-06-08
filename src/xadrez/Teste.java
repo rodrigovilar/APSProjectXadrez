@@ -13,12 +13,8 @@ public class Teste {
 	}
 	public JogoXadrez cenario2(){
 		JogoXadrez jogo = new JogoXadrez();
-		//Peao
-		jogo.movimentarPeca(1, 0, 3, 0);
-		//Peao
-		jogo.movimentarPeca(6, 1, 4, 1);
-		//Peao
-		jogo.movimentarPeca(1, 4, 2, 4);
+		jogo.movimentarPeca(1, 0, 2, 0);
+		jogo.movimentarPeca(2, 0, 3, 0);
 		return jogo;
 	}
 	public JogoXadrez cenario3(){
@@ -32,7 +28,6 @@ public class Teste {
 	}
 	
 	
-
 	@Test
 	public void testeTabuleiroDoJogo(){
 		JogoXadrez jogo = new JogoXadrez();
@@ -148,6 +143,31 @@ public class Teste {
 		/*Movimento do 2º Torre (Esqueda p/ Direita)*/
 		assertTrue(jogo.movimentarPeca(7, 7, 6, 7));
 	}
+	
+	@Test
+    public void testaUmMovimentoValidoParaCavaloBranco(){
+        JogoXadrez jogo = this.cenario1();
+		assertEquals(true,jogo.movimentoValido(0, 1, 2, 2));
+    }
+	
+	@Test
+    public void testaUmMovimentoInvalidoParaCavaloBranco() {
+		JogoXadrez jogo = this.cenario1();
+        assertEquals(false,jogo.movimentoValido(0, 1, 3, 2));
+    }
+	
+	@Test
+    public void testaUmMovimentoValidoParaTorreBranca(){
+        JogoXadrez jogo = this.cenario2();      
+		assertEquals(true,jogo.movimentoValido(0, 0, 2, 0));
+    }
+	
+	@Test
+    public void testaUmMovimentoInvalidoTorreBranca() {
+		JogoXadrez jogo = this.cenario1();
+        assertEquals(false,jogo.movimentoValido(0, 0, 2, 2));
+    }
+	
 	@Test
 	public void testeMovimentoValidoEInvalidoPecasBrancas(){
 
@@ -166,7 +186,8 @@ public class Teste {
 		assertEquals(false,jogo.movimentarPeca(7, 0, 6, 2));
 		assertEquals(true,jogo.movimentarPeca(7, 0, 6, 0));
 		assertEquals(true,jogo.movimentarPeca(7, 1, 5, 0));
-		assertEquals(false,jogo.movimentarPeca(7, 1, 4, 0));
+		assertEquals(true,jogo.movimentarPeca(7, 2, 6, 3));
+		//assertFalse(jogo.movimentarPeca(7, 2, 6, 2));
 	}
 	@Test
 	public void testeComerPecas(){
@@ -204,7 +225,29 @@ public class Teste {
 		JogoXadrez jogo = this.cenario3();
 		assertEquals(true,jogo.verificarReiEmXeque());
 	}
-	
+	@Test
+	public void testeRoque(){	
+		JogoXadrez jogo = this.cenario1();
+		assertTrue(jogo.movimentarPeca(1, 1, 2, 1));
+		assertTrue(jogo.movimentarPeca(0, 1, 2, 2));
+		assertTrue(jogo.movimentarPeca(0, 2, 2, 0));
+		assertTrue(jogo.movimentarPeca(0, 3, 0, 1));
+		assertFalse(jogo.existePeca(0, 0));
+		assertEquals("Rei",jogo.getTipoDaPeca(0, 1));
+		assertEquals("Torre",jogo.getTipoDaPeca(0, 2));	
+	}
+	@Test
+	public void movimentoSentidoforaDoTabuleiro(){
+		JogoXadrez jogo = this.cenario1();
+		assertEquals(false, jogo.movimentarPeca(0, 0, -1, -1));
+		assertEquals(false, jogo.movimentarPeca(0, 1, 0, -1));
+		assertEquals(false, jogo.movimentarPeca(0, 2, 0, -1));
+		assertEquals(false, jogo.movimentarPeca(0, 3, -1, -1));
+		assertEquals(false, jogo.movimentarPeca(0, 4, -1, -1));
+		assertEquals(false, jogo.movimentarPeca(0, 5, -1, -1));
+		assertEquals(false, jogo.movimentarPeca(0, 6, -1, -1));
+		assertEquals(false, jogo.movimentarPeca(0, 7, -1, -1));
+	}
 
 
 }

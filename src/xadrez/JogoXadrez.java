@@ -317,9 +317,9 @@ public class JogoXadrez implements IXadrez {
 		if(this.movimentoEhValido(linhaFutura, colunaFutura, p)){
 			this.moverPeca(p, linhaFutura, colunaFutura);
 			return true;
-		}else{
-			return false;
 		}
+		return false;
+		
 	}
 	public boolean movimentoValido(int linha1, int coluna1,int linhaFutura, int colunaFutura){
 		
@@ -329,7 +329,6 @@ public class JogoXadrez implements IXadrez {
 		
 		
 	}
-
 	public Enum corPeca(int l, int c) {
 		if(CorDaPeca.BRANCA == tabuleiro.getQuadrado(l, c).getPeca().getCor()){
 			return CorDaPeca.BRANCA;
