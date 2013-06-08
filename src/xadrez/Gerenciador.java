@@ -109,7 +109,7 @@ public class Gerenciador {
 			}
 		}
 	}
-	public void verificaSair(int x, int y, GameImage g, Window janela){
+	public boolean verificaSair(int x, int y, GameImage g, Window janela){
 		if(x > 378 && x <= 478){
 			if(y > 30 && y <= 60){
 				g = new GameImage("sair2.png");
@@ -119,14 +119,18 @@ public class Gerenciador {
 				int opcao = JOptionPane.showConfirmDialog(null, "DESEJA SAIR?", "End Game", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
 				if(opcao == 0)
 					janela.exit();
+					
 				else{
 					g = new GameImage("sair.png");
 					g.setPosition(378, 30);
 					g.draw();
 					janela.display();
+					return false;
 				}
 			}
 		}
+		return true;
+		
 	}
 }
 

@@ -285,7 +285,12 @@ public class JogoXadrez implements IXadrez {
 		if(xeque(rei).size() != 0)
 			return true;
 		return false;
-
+	}
+	public boolean verificarReiEmXeque(){
+		Rei rei = tabuleiro.getReiBranco();
+		if(xeque(rei).size() != 0)
+			return true;
+		return false;
 	}
 
 	@Override
@@ -305,14 +310,26 @@ public class JogoXadrez implements IXadrez {
 		String peca = tabuleiro.getQuadrado(linha, coluna).getPeca().getNomeDaPeca();
 		return peca;		
 		}
-	
 	public boolean movimentarPeca(int linha1, int coluna1,int linhaFutura, int colunaFutura){
 		
 		Peca p = tabuleiro.getQuadrado(linha1, coluna1).getPeca();
-		this.moverPeca(p, linhaFutura, colunaFutura);
-		return true;
+		
+		if(this.movimentoEhValido(linhaFutura, colunaFutura, p)){
+			this.moverPeca(p, linhaFutura, colunaFutura);
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public boolean movimentoValido(int linha1, int coluna1,int linhaFutura, int colunaFutura){
+		
+		Peca p = tabuleiro.getQuadrado(linha1, coluna1).getPeca();		
+		boolean teste = this.movimentoEhValido(linhaFutura, colunaFutura, p);
+		return teste;
+		
 		
 	}
+
 	public Enum corPeca(int l, int c) {
 		if(CorDaPeca.BRANCA == tabuleiro.getQuadrado(l, c).getPeca().getCor()){
 			return CorDaPeca.BRANCA;
