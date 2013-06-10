@@ -6,7 +6,6 @@ import static org.junit.Assert.assertFalse;
 import org.junit.Test;
 
 public class Teste {
-	//Cenarios
 	public JogoXadrez cenario1(){
 		JogoXadrez jogo = new JogoXadrez();
 		return jogo;
