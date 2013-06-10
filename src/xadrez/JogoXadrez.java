@@ -287,6 +287,7 @@ public class JogoXadrez implements IXadrez {
 			return true;
 		return false;
 	}
+	
 
 	public boolean movimentoEhValido(int linhaDestino, int colunaDestino,Peca peca) {
 
