@@ -24,7 +24,6 @@ public class JogoXadrez implements IXadrez {
 		this.iniciarTabuleiro();
 	}
 
-	@Override
 	public boolean iniciarTabuleiro() {
 		this.tabuleiro = new Tabuleiro();
 		return true;
@@ -33,7 +32,6 @@ public class JogoXadrez implements IXadrez {
 	public Tabuleiro getTabuleiro() {
 		return tabuleiro;
 	}
-	@Override
 	public void moverPeca(Peca peca, int linhaDestino, int colunaDestino){
 
 		Quadrado destino = tabuleiro.getQuadrado(linhaDestino, colunaDestino);
@@ -230,7 +228,6 @@ public class JogoXadrez implements IXadrez {
 		}
 	}
 
-	@Override
 	public void comerPeca(Peca p) {
 		if(JogadorDaVez == CorDaPeca.PRETA){
 			pecasBrancasCapturadas.add(p);
@@ -240,7 +237,6 @@ public class JogoXadrez implements IXadrez {
 		}
 	}
 
-	@Override
 	public boolean pecaEhDoJogadorAtual(Peca p) {
 		if(JogadorDaVez == p.getCor()){
 			return true;
@@ -280,7 +276,6 @@ public class JogoXadrez implements IXadrez {
 		return pecasDeXeque;
 	}
 
-	@Override
 	public boolean verificaXeque(Rei rei){
 		if(xeque(rei).size() != 0)
 			return true;
@@ -293,7 +288,6 @@ public class JogoXadrez implements IXadrez {
 		return false;
 	}
 
-	@Override
 	public boolean movimentoEhValido(int linhaDestino, int colunaDestino,Peca peca) {
 
 		Coordenada proximoMovimento = new Coordenada(linhaDestino, colunaDestino);
