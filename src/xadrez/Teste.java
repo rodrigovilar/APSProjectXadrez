@@ -39,6 +39,24 @@ public class Teste {
 
 		return jogo;
 	}
+	
+	public JogoXadrez cenario5() {
+		JogoXadrez jogo = new JogoXadrez();
+		// movimento do peao branca
+		assertTrue(jogo.movimentarPeca(1, 0, 2, 0));
+		assertTrue(jogo.movimentarPeca(2, 0, 3, 0));
+		// movimento da torre branca
+		assertTrue(jogo.movimentarPeca(0, 0, 1, 0));
+		assertTrue(jogo.movimentarPeca(1, 0, 2, 0));
+		assertTrue(jogo.movimentarPeca(2, 0, 2, 1));
+		assertTrue(jogo.movimentarPeca(2, 1, 3, 1));
+		// movimento do peao preto
+		assertTrue(jogo.movimentarPeca(6, 0, 5, 0));
+		assertTrue(jogo.movimentarPeca(5, 0, 4, 0));
+		// movimento do cavalo preto
+		assertTrue(jogo.movimentarPeca(7, 1, 5, 2));
+		return jogo;
+	}
 
 	@Test
 	public void testeTabuleiroDoJogo() {
@@ -277,23 +295,7 @@ public class Teste {
 		assertEquals(jogo.getJogadorDaVez(), CorDaPeca.BRANCA);
 	}
 
-	public JogoXadrez cenario5() {
-		JogoXadrez jogo = new JogoXadrez();
-		// movimento do peao branca
-		assertTrue(jogo.movimentarPeca(1, 0, 2, 0));
-		assertTrue(jogo.movimentarPeca(2, 0, 3, 0));
-		// movimento da torre branca
-		assertTrue(jogo.movimentarPeca(0, 0, 1, 0));
-		assertTrue(jogo.movimentarPeca(1, 0, 2, 0));
-		assertTrue(jogo.movimentarPeca(2, 0, 2, 1));
-		assertTrue(jogo.movimentarPeca(2, 1, 3, 1));
-		// movimento do peao preto
-		assertTrue(jogo.movimentarPeca(6, 0, 5, 0));
-		assertTrue(jogo.movimentarPeca(5, 0, 4, 0));
-		// movimento do cavalo preto
-		assertTrue(jogo.movimentarPeca(7, 1, 5, 2));
-		return jogo;
-	}
+	
 
 	@Test
 	public void testePeaoComendoTorre() {
