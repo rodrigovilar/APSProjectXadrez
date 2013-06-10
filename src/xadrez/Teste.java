@@ -37,24 +37,22 @@ public class Teste {
 		
 		return jogo;
 	}
-	public JogoXadrez cenario5(){
+
+	public JogoXadrez cenario5() {
 		JogoXadrez jogo = new JogoXadrez();
 		// movimento do peao branca
 		assertTrue(jogo.movimentarPeca(1, 0, 2, 0));
 		assertTrue(jogo.movimentarPeca(2, 0, 3, 0));
 		// movimento da torre branca
-		assertTrue(jogo.movimentarPeca(0, 0, 2, 0));
-		
+		assertTrue(jogo.movimentarPeca(0, 0, 1, 0));
+		assertTrue(jogo.movimentarPeca(1, 0, 2, 0));
 		assertTrue(jogo.movimentarPeca(2, 0, 2, 1));
 		assertTrue(jogo.movimentarPeca(2, 1, 3, 1));
 		// movimento do peao preto
 		assertTrue(jogo.movimentarPeca(6, 0, 5, 0));
 		assertTrue(jogo.movimentarPeca(5, 0, 4, 0));
-
-		return jogo;
-	}
-	public JogoXadrez cenario6(){
-		JogoXadrez jogo = new JogoXadrez();
+		// movimento do cavalo preto
+		assertTrue(jogo.movimentarPeca(7, 1, 5, 2));
 		return jogo;
 	}
 	
@@ -312,7 +310,13 @@ public class Teste {
 		assertEquals(false, jogo.movimentarPeca(0, 7, -1, -1));
 	}
 
-
+	@Test
+	public void testePeaoComendoTorre() {
+		JogoXadrez jogo = this.cenario5();
+		assertTrue(jogo.movimentarPeca(1, 5, 2, 5));
+		assertTrue(jogo.movimentarPeca(4, 0, 3, 1));
+		assertEquals(CorDaPeca.PRETA, jogo.corPeca(3, 1));
+	}
 }
 
 
