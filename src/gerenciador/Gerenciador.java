@@ -1,6 +1,11 @@
-package xadrez;
+package gerenciador;
 
 import javax.swing.JOptionPane;
+
+import fachada.JogoXadrez;
+
+import jogoDeXadrez.Peca;
+
 import JPlay.GameImage;
 import JPlay.Mouse;
 import JPlay.Window;

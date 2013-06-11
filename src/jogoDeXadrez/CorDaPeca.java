@@ -1,4 +1,4 @@
-package xadrez;
+package jogoDeXadrez;
 
 
 public enum CorDaPeca {

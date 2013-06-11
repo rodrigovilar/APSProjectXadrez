@@ -1,4 +1,6 @@
-package xadrez;
+package jogoDeXadrez;
+
+import gerenciador.Gerenciador;
 
 public class Main {
 

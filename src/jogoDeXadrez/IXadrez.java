@@ -1,4 +1,5 @@
-package xadrez;
+package jogoDeXadrez;
+
 
 
 public interface IXadrez {

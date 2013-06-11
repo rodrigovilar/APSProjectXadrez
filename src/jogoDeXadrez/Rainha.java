@@ -1,4 +1,4 @@
-package xadrez;
+package jogoDeXadrez;
 
 import JPlay.GameImage;
 

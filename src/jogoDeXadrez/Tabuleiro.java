@@ -1,7 +1,11 @@
-package xadrez;
+package jogoDeXadrez;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import fachada.JogoXadrez;
+
+
 
 import JPlay.GameImage;
 

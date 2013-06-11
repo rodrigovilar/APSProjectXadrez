@@ -1,8 +1,19 @@
-package xadrez;
+package fachada;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+
+import jogoDeXadrez.Coordenada;
+import jogoDeXadrez.CorDaPeca;
+import jogoDeXadrez.IXadrez;
+import jogoDeXadrez.Peca;
+import jogoDeXadrez.Quadrado;
+import jogoDeXadrez.Rei;
+import jogoDeXadrez.Tabuleiro;
+import jogoDeXadrez.Torre;
+
+
 
 import JPlay.GameImage;
 
