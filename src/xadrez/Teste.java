@@ -354,6 +354,16 @@ public class Teste {
 		assertEquals(CorDaPeca.BRANCA, jogo.corPeca(7, 0));
 		assertEquals("Torre", jogo.getTipoDaPeca(7, 0));
 	}
+	
+	@Test
+	public void testeTorreComendoBispo(){
+		JogoXadrez jogo = this.cenario4();
+		assertTrue(jogo.movimentarPeca(7, 2, 5, 0));
+		assertTrue(jogo.movimentarPeca(4, 0, 5, 1));
+		assertTrue(jogo.movimentarPeca(0, 0, 5, 0));
+		assertEquals(CorDaPeca.BRANCA, jogo.corPeca(5, 0));
+		assertEquals("Torre", jogo.getTipoDaPeca(5, 0));
+	}
 
 	@Test
 	public void testeCavaloComendoTorre() {
