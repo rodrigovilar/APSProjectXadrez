@@ -6,7 +6,6 @@ import static org.junit.Assert.assertFalse;
 import org.junit.Test;
 
 public class Teste {
-	
 	public JogoXadrez cenario1() {
 		JogoXadrez jogo = new JogoXadrez();
 		return jogo;
@@ -362,5 +361,6 @@ public class Teste {
 		assertEquals(false, jogo.movimentarPeca(1, 0, 2, 1));
 
 	}
+	
 	
 }
