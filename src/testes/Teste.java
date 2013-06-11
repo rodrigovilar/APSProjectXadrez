@@ -445,6 +445,19 @@ public class Teste {
 		assertEquals(CorDaPeca.BRANCA, jogo.corPeca(1, 4));
 		assertEquals("Rei", jogo.getTipoDaPeca(1, 4));
 	}
+	
+	@Test
+	public void testeReiComendoCavalo(){
+	 	JogoXadrez jogo = this.cenario4();
+		assertTrue(jogo.movimentarPeca(7, 1, 5, 2));
+		assertTrue(jogo.movimentarPeca(5, 2, 3, 3));
+		assertTrue(jogo.movimentarPeca(3, 3, 1, 4));
+		assertTrue(jogo.movimentarPeca(0, 3, 1, 4));
+		assertEquals(CorDaPeca.BRANCA, jogo.corPeca(1, 4));
+		assertEquals("Rei", jogo.getTipoDaPeca(1, 4));
+	}
+	
+	
 
 	@Test
 	public void testeRainhaComendoPeao() {
@@ -455,6 +468,7 @@ public class Teste {
 		assertEquals(CorDaPeca.PRETA, jogo.corPeca(1, 6));
 		assertEquals("Rainha", jogo.getTipoDaPeca(1, 6));
 	}
+	
 	
 	@Test
 	public void testeXeque() {
