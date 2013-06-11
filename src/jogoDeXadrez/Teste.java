@@ -9,6 +9,15 @@ import org.junit.Test;
 import fachada.JogoXadrez;
 
 public class Teste {
+	public JogoXadrez cenario0() {
+		JogoXadrez jogo = new JogoXadrez();
+		jogo.movimentarPeca(1, 1, 2, 1);
+		jogo.movimentarPeca(6, 3, 5, 3);
+		jogo.movimentarPeca(7, 4, 3, 0);
+
+		return jogo;
+	}
+	
 	public JogoXadrez cenario1() {
 		JogoXadrez jogo = new JogoXadrez();
 		return jogo;
@@ -250,26 +259,51 @@ public class Teste {
 	}
 
 	@Test
-	public void testeJogadorBrancoTentaJogarComPecaPreta() {
-		JogoXadrez jogo = this.cenario1();
-		assertTrue(jogo.movimentarPeca(6, 0, 5, 0));
-	}
-
-	@Test
-	public void testeJogdorPretoTentaJogarComPecaBranca() {
-		JogoXadrez jogo = this.cenario1();
-		jogo.alteraVez();
-		assertTrue(jogo.movimentarPeca(1, 0, 2, 0));
-	}
-
-	@Test
 	public void testePeaoComendoPeao() {
 		JogoXadrez jogo = this.cenario4();
 		assertTrue(jogo.movimentarPeca(4, 0, 5, 1));
 		assertEquals(CorDaPeca.BRANCA, jogo.corPeca(5, 1));
 		assertEquals("Peao", jogo.getTipoDaPeca(5, 1));
 	}
+	
+	@Test
+	public void testePeaoComendoRainha() {
+		JogoXadrez jogo = this.cenario0();
+		assertTrue(jogo.movimentarPeca(2, 1, 3, 0));
+		assertEquals(CorDaPeca.BRANCA, jogo.corPeca(3, 0));
+		assertEquals("Peao", jogo.getTipoDaPeca(3, 0));
 
+	}
+
+	@Test
+	public void testePeaoComendoBispo() {
+		JogoXadrez jogo = this.cenario0();
+		assertTrue(jogo.movimentarPeca(0, 2, 2, 0));
+		assertTrue(jogo.movimentarPeca(2, 0, 4, 2));
+		assertTrue(jogo.movimentarPeca(5, 3, 4, 2));
+		assertEquals(CorDaPeca.PRETA, jogo.corPeca(4, 2));
+		assertEquals("Peao", jogo.getTipoDaPeca(4, 2));
+	}
+	
+	@Test
+	public void testePeaoComendoTorre() {
+		JogoXadrez jogo = this.cenario5();
+		assertTrue(jogo.movimentarPeca(1, 5, 2, 5));
+		assertTrue(jogo.movimentarPeca(4, 0, 3, 1));
+		assertEquals(CorDaPeca.PRETA, jogo.corPeca(3, 1));
+		assertEquals("Peao", jogo.getTipoDaPeca(3, 1));
+	}
+	
+	@Test
+    public void testePeaoComendoCavalo() {
+            JogoXadrez jogo = this.cenario7();
+            assertTrue(jogo.movimentarPeca(1, 5, 2, 5));
+            assertTrue(jogo.movimentarPeca(5, 2, 3, 1));
+            assertTrue(jogo.movimentarPeca(2, 2, 3, 1));
+            assertEquals(CorDaPeca.BRANCA, jogo.corPeca(3, 1));
+            assertEquals("Peao", jogo.getTipoDaPeca(3, 1));
+    }
+	
 	@Test
 	public void testeBispoComendoPeao() {
 		JogoXadrez jogo = this.cenario4();
@@ -339,15 +373,6 @@ public class Teste {
 	}
 
 	@Test
-	public void testePeaoComendoTorre() {
-		JogoXadrez jogo = this.cenario5();
-		assertTrue(jogo.movimentarPeca(1, 5, 2, 5));
-		assertTrue(jogo.movimentarPeca(4, 0, 3, 1));
-		assertEquals(CorDaPeca.PRETA, jogo.corPeca(3, 1));
-		assertEquals("Peao", jogo.getTipoDaPeca(3, 1));
-	}
-	
-	@Test
 	public void testeTorreComendoTorre(){
 		JogoXadrez jogo = this.cenario4();
 		assertTrue(jogo.movimentarPeca(4, 0, 5, 1));
@@ -410,18 +435,6 @@ public class Teste {
 		assertEquals(CorDaPeca.PRETA, jogo.corPeca(3, 1));
 		assertEquals("Cavalo", jogo.getTipoDaPeca(3, 1));
 	}
-	
-	@Test
-    public void testePeaoComendoCavalo() {
-            JogoXadrez jogo = this.cenario7();
-            assertTrue(jogo.movimentarPeca(1, 5, 2, 5));
-            assertTrue(jogo.movimentarPeca(5, 2, 3, 1));
-            assertTrue(jogo.movimentarPeca(2, 2, 3, 1));
-            assertEquals(CorDaPeca.BRANCA, jogo.corPeca(3, 1));
-            assertEquals("Peao", jogo.getTipoDaPeca(3, 1));
-    }	
-
-	
 	
 	
 }
