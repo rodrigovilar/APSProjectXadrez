@@ -363,5 +363,10 @@ public class Teste {
 
     }	
 	
-	
+	@Test 
+	public void testeMovimentoInvalidoPeaoNaPosicao(){
+		JogoXadrez jogo = this.cenario1();
+		assertEquals(false, jogo.movimentarPeca(1, 0, 2, 1));
+		
+	}
 }
