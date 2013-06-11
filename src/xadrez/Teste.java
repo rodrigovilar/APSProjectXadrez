@@ -75,17 +75,6 @@ public class Teste {
 
 	}
 	
-	public JogoXadrez cenario7() {
-        JogoXadrez jogo = new JogoXadrez();
-        // movimento de um peao
-        assertTrue(jogo.movimentarPeca(1, 2, 2, 2));
-        // movimento do cavalo
-        assertTrue(jogo.movimentarPeca(7, 1, 5, 2));
-
-        return jogo;
-
-}
-	
 	@Test
 	public void testeTabuleiroDoJogo() {
 		JogoXadrez jogo = new JogoXadrez();
@@ -355,14 +344,6 @@ public class Teste {
 		assertEquals(CorDaPeca.PRETA, jogo.corPeca(3, 1));
 	}
 	
-	@Test
-    public void testePeaoComendoCavalo() {
-            JogoXadrez jogo = this.cenario7();
-            assertTrue(jogo.movimentarPeca(1, 5, 2, 5));
-            assertTrue(jogo.movimentarPeca(5, 2, 3, 1));
-            assertTrue(jogo.movimentarPeca(2, 2, 3, 1));
-            assertEquals(CorDaPeca.BRANCA, jogo.corPeca(3, 1));
-
-    }
+	
 	
 }
