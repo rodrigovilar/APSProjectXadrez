@@ -343,13 +343,5 @@ public class Teste {
 		assertTrue(jogo.movimentarPeca(5, 2, 3, 1));
 		assertEquals(CorDaPeca.PRETA, jogo.corPeca(3, 1));
 	}
-	
-	@Test 
-	public void testePeaoComendoCavalo() {
-		JogoXadrez jogo = this.cenario6();
-		assertTrue(jogo.movimentarPeca(1, 7, 2, 7));
-		assertTrue(jogo.movimentarPeca(5, 2, 3, 1));
-		assertEquals(CorDaPeca.PRETA, jogo.corPeca(3, 1));
-	}
 
 }
