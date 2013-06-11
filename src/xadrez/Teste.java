@@ -6,6 +6,7 @@ import static org.junit.Assert.assertFalse;
 import org.junit.Test;
 
 public class Teste {
+	
 	public JogoXadrez cenario1() {
 		JogoXadrez jogo = new JogoXadrez();
 		return jogo;
@@ -43,21 +44,16 @@ public class Teste {
 
 	public JogoXadrez cenario5() {
 		JogoXadrez jogo = new JogoXadrez();
-		// movimento do peao branca
 		assertTrue(jogo.movimentarPeca(1, 0, 2, 0));
 		assertTrue(jogo.movimentarPeca(2, 0, 3, 0));
-		// movimento da torre branca
 		assertTrue(jogo.movimentarPeca(0, 0, 1, 0));
 		assertTrue(jogo.movimentarPeca(1, 0, 2, 0));
 		assertTrue(jogo.movimentarPeca(2, 0, 2, 1));
 		assertTrue(jogo.movimentarPeca(2, 1, 3, 1));
-		// movimento do peao preto
 		assertTrue(jogo.movimentarPeca(6, 6, 5, 6));
 		assertTrue(jogo.movimentarPeca(5, 6, 4, 6));
-		// movimento do peao preto
 		assertTrue(jogo.movimentarPeca(6, 7, 5, 7));
 		assertTrue(jogo.movimentarPeca(5, 7, 4, 7));
-		// movimento do peao preto
 		assertTrue(jogo.movimentarPeca(6, 0, 5, 0));
 		assertTrue(jogo.movimentarPeca(5, 0, 4, 0));
 
@@ -66,9 +62,7 @@ public class Teste {
 
 	public JogoXadrez cenario6() {
 		JogoXadrez jogo = this.cenario5();
-		// movimento de um peao
 		assertTrue(jogo.movimentarPeca(1, 6, 2, 6));
-		// movimento do cavalo
 		assertTrue(jogo.movimentarPeca(7, 1, 5, 2));
 
 		return jogo;
@@ -76,9 +70,7 @@ public class Teste {
 	}
 	public JogoXadrez cenario7() {
         JogoXadrez jogo = new JogoXadrez();
-        // movimento de um peao
         assertTrue(jogo.movimentarPeca(1, 2, 2, 2));
-        // movimento do cavalo
         assertTrue(jogo.movimentarPeca(7, 1, 5, 2));
 
         return jogo;
@@ -299,7 +291,8 @@ public class Teste {
 		assertTrue(jogo.movimentarPeca(5, 2, 1, 6));
 		assertEquals(CorDaPeca.PRETA, jogo.corPeca(1, 6));
 	}
-
+	
+	@Test
 	public void testeTorreComendoPeao() {
 		JogoXadrez jogo = this.cenario4();
 		this.testePeaoComendoPeao();
@@ -369,4 +362,5 @@ public class Teste {
 		assertEquals(false, jogo.movimentarPeca(1, 0, 2, 1));
 
 	}
+	
 }
