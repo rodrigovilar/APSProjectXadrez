@@ -435,6 +435,16 @@ public class Teste {
 	}
 	
 	@Test
+	public void testeReiComendoPeao(){
+		JogoXadrez jogo = this.cenario4();
+		assertTrue(jogo.movimentarPeca(4, 0, 5, 1));
+		assertTrue(jogo.movimentarPeca(5, 1, 6, 2));
+		assertTrue(jogo.movimentarPeca(7, 3, 6, 2));
+		assertEquals(CorDaPeca.PRETA, jogo.corPeca(6, 2));
+		assertEquals("Rei", jogo.getTipoDaPeca(6, 2));
+	}
+	
+	@Test
 	public void testeReiComendoRainha(){
 		JogoXadrez jogo = this.cenario4();
 		assertTrue(jogo.movimentarPeca(6, 5, 5, 5));
