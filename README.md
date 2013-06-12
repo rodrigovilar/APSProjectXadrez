@@ -1,4 +1,0 @@
-APSProjectXadrez
-================
-
-Projeto de APS
